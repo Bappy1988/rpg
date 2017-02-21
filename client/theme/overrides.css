@@ -1,0 +1,16 @@
+/*
+ * These values override react-toolbox's default values
+ * They can be absolute values e.g. #008000
+ * Or defined variables e.g. var(--palette-amber-500)
+ * Defined colour palettes can be found here: https://material.io/guidelines/style/color.html#color-color-palette
+ *
+ * Some commonly overriden ones are
+ * color-primary
+ * color-primary-dark
+ * color-accent
+ * color-accent-dark
+ * color-primary-contrast
+ * color-accent-contrast
+ */
+@value color-primary var(--palette-green-500);
+@value color-primary-dark var(--palette-green-700);

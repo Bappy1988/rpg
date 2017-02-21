@@ -1,0 +1,7 @@
+/*
+ * General theme styles
+ * Colours for existing material components should go in overrides.css
+ */
+@import "~normalize.css";
+
+:global(#app) { height:100%; }
