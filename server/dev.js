@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const compression = require('compression');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
@@ -6,6 +7,9 @@ const server = module.exports = express();
 
 // Body parsing
 server.use(bodyParser.json());
+
+// GZIP
+server.use(compression());
 
 // Route loading
 let routePath = path.join(__dirname, 'api');
