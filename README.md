@@ -43,11 +43,11 @@
 ## Build System
  The project is built using Webpack 2 and can be built in development or production mode  
  All output files are placed in the `dist` folder
- ### Development Mode
+### Development Mode
   `npm run build.dev`  
   Generates a single artifact with the css bundled into it. Source maps are included and it is not minified.  
   Note: This bundle will be big (about 9mb) - therefore it should _not_ be used in production.
- ### Production Mode
+### Production Mode
   `npm run build.prod`  
   Generates two javascript bundles (app and vendor) and a css bundle. Source maps are not included and it is minified.  
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
