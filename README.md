@@ -13,26 +13,26 @@
  4. Run `npm start`
  5. Navigate to [localhost:9001](http://localhost:9001)
 
-## Client Structure  
- ### App  
+## Client Structure
+### App  
    The app root (`client/app/index.jsx`) sets up the root of the application (container and child routes).  
    No logic should be present here; just the initialisation of the app.  
- ### Components  
+### Components  
    Components are located under the `components` folder and are [standard React components](https://facebook.github.io/react/docs/react-component.html).  
    Where possible, the components should use local state rather than redux store.  
    Any components that need access to the redux store can do so with `connect`
- ### Routing  
+### Routing  
    Routing is done with `react-router` in combination with `react-router-redux` to sync the routing with the store.  
    Routes are defined in `routes.js` and utilize `react-router`'s nested route functionality to allow for a container around the displayed component(s).  
    Using `react-router-redux` also allows for routing within actions, for example routing back to the login page on session timeout.  
    See [the docs](https://github.com/reactjs/react-router-redux) for more details.  
- ### Theming
+### Theming
    `react-toolbox` provides most of the styles for [Material Design](https://material.io/guidelines/) out of the box, so the only customization necessary should be colours.  
    Overrides for colours are in `theme/overrides.css` and should be enough for customizing the majority of the site.  
    Global site styles are in `theme/theme.scss` and can be used for non-component-specific things.  
    See [React Toolbox Components](http://react-toolbox.com/#/components) for more information on individual components  
    Developer notes are also included in `themes/overrides.css`  
- ### Tests
+### Tests
    Tests are located under the `tests` folder and are largely up to the developer to write.  
    They are executed using `jest`, which will detect and run them automatically and provide a coverage report.  
    They can be run manually with `npm run test`, but are also run with each production build.  
