@@ -6,7 +6,13 @@ const APP_DIR = path.join(__dirname, 'client/app');
 const BUILD_DIR = path.join(__dirname, 'dist');
 
 const config = {
-	entry: APP_DIR + '/index.jsx',
+	entry: {
+		app: APP_DIR + '/index.jsx',
+		vendor: [
+			"react", "react-addons-css-transition-group", "react-dom", "react-redux", "react-router", "react-router-redux",
+			"react-toolbox", "redux", "redux-thunk", "reselect", path.join(__dirname, 'client', 'theme', 'theme')
+		]
+	},
 	module: {
 		rules: [
 			{
@@ -58,6 +64,7 @@ const config = {
 		path: BUILD_DIR
 	},
 	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.prod.js"}),
 		new webpack.DefinePlugin({"process.env": {NODE_ENV: JSON.stringify('production')}}),
 		new webpack.LoaderOptionsPlugin({
 			eslint: {
