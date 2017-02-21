@@ -53,7 +53,7 @@
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
   This will also run the test suite and will abort if any tests fail.  
   Note: This bundle will be compact (about 600kb javascript + 120kb css), but debugging will be impossible so it should not be used for local development.  
- ### Testing
+### Testing
   `npm run test`  
   Runs all the tests in the `tests` folder and displays the results, followed by a coverage report  
   This can be run manually, but is also run when doing a production build
