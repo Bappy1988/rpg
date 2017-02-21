@@ -1,0 +1,5 @@
+.idea
+coverage
+dist/bundle.*
+node_modules
+tests/__snapshots__
