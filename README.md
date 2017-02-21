@@ -13,7 +13,7 @@
  4. Run `npm start`
  5. Navigate to [localhost:9001](http://localhost:9001)
 
-## Client Structure
+## Client Structure  
  ### App  
    The app root (`client/app/index.jsx`) sets up the root of the application (container and child routes).  
    No logic should be present here; just the initialisation of the app.  
