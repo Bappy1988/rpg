@@ -4,8 +4,6 @@ const path = require('path');
 const APP_DIR = path.join(__dirname, 'client/app');
 const BUILD_DIR = path.join(__dirname, 'dist');
 
-const reactToolboxVariables = {};
-
 const config = {
 	entry: APP_DIR + '/index.jsx',
 	module: {
