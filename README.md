@@ -28,11 +28,13 @@
   Reducers are located under the `reducers` folder.  
   If any selectors are required, `reselect` is also included.  
 ### Routing  
-   Routing is done with `react-router` in combination with `react-router-redux` to sync the routing with the store.  
-   Routes are defined in `routes.js` and utilize `react-router`'s nested route functionality to allow for a container around the displayed component(s).  
-   Using `react-router-redux` also allows for routing within actions, for example routing back to the login page on session timeout.  
-   
+   Routing is done with `react-router`, with routes defined in `routes.js`.  
+   Utilizing `react-router`'s nested route functionality allows for a container around the displayed component(s).  
+#### Router State in Redux
+   Router state is synced with the store using `react-router-redux`, which also allows for routing within actions (for example routing back to the login page on session timeout).  
    See [the docs](https://github.com/reactjs/react-router-redux) for more details.  
+#### Authentication
+   Routes support checks before activating, and can navigate away if the checks fail. See `routes.js` for an example.  
 ### Theming
    `react-toolbox` provides most of the styles for [Material Design](https://material.io/guidelines/) out of the box, so the only customization necessary should be colours.  
    Overrides for colours are in `theme/overrides.css` and should be enough for customizing the majority of the site.  
