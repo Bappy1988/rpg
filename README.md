@@ -66,6 +66,7 @@
   Notes:  
   * This bundle will be compact (about 600kb javascript + 100kb css), but debugging will be impossible so it should not be used for local development.  
   * When served with gzip, this decreases to around 170kb javascript and 15kb css
+
 ### Testing
   `npm run test`  
   Runs all the tests in the `tests` folder and displays the results, followed by a coverage report  
@@ -80,5 +81,6 @@
    * JS is minified and source maps are not included
    * Vendor (3rd party) code is split into a separate JS file  
    * CSS toolchain is sass-loader -> postcss-loader -> css-loader -> extract-text-webpack-plugin -> bundle.prod.css -> optimize-css-assets-plugin
+
 ### Known Issues
  * Deprecation warning from `loaderUtils.parseQuery()` due to api change - [issue details](https://github.com/webpack/loader-utils/issues/56) 
