@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const APP_DIR = path.join(__dirname, 'client/app');
 const BUILD_DIR = path.join(__dirname, 'dist');
@@ -83,6 +84,11 @@ const config = {
 		new ExtractTextPlugin({
 			filename: "bundle.prod.css",
 			allChunks: true
+		}),
+		new OptimizeCssAssetsPlugin({
+			cssProcessorOptions: {
+				discardComments: {removeAll: true}
+			}
 		})
 	],
 	resolve: {
