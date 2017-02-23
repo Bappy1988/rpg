@@ -12,9 +12,9 @@ class App extends React.Component {
 	render() {
 		const {main} = this.props;
 		return <Layout>
-			<Panel>
+			<Panel style={{display:'flex', flexDirection:'column', height:'100vh'}}>
 				<AppBar title="React Starter" />
-				<div style={{display:'flex', flexDirection:'column', flex:1}}>
+				<div style={{flex:1, overflowY:'auto', padding:'1.8rem'}}>
 					{main}
 				</div>
 			</Panel>
