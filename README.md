@@ -57,6 +57,7 @@
   
   Notes: 
   * This bundle will be big (about 9mb) - therefore it should _not_ be used in production
+
 ### Production Mode
   `npm run build.prod`  
   Generates two javascript bundles (app and vendor) and a css bundle. Source maps are not included, the javascript bundles are minified and the css is optimized.  
