@@ -7,10 +7,11 @@
  * Unit Tests (with Jest)
  
 ## Getting Started
+`yarn` is recommended, though `npm` will also work  
  1. Clone the project
- 2. Run `npm install`
- 3. Run `npm run build.dev`
- 4. Run `npm start`
+ 2. Run `yarn install`
+ 3. Run `yarn run build.dev`
+ 4. Run `yarn start`
  5. Navigate to [localhost:9001](http://localhost:9001)
 
 ## Client Structure
