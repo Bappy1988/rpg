@@ -4,6 +4,7 @@
  * React
  * Redux (with thunk)
  * React Toolbox (for Material UI components)
+ * 12 column grid system for responsive UI
  * Unit Tests (with Jest)
  
 ## Getting Started
@@ -36,6 +37,9 @@
    See [the docs](https://github.com/reactjs/react-router-redux) for more details.  
 #### Authentication
    Routes support checks before activating, and can navigate away if the checks fail. See `routes.js` for an example.  
+### Responsive Grid
+   A 12 column grid component is included, following the Material Design spec, allowing for easy responsive design.  
+   See the home page for an example.  
 ### Theming
    `react-toolbox` provides most of the styles for [Material Design](https://material.io/guidelines/) out of the box, so the only customization necessary should be colours.  
    Overrides for colours are in `theme/overrides.css` and should be enough for customizing the majority of the site.  
