@@ -11,7 +11,7 @@ const config = {
 		app: APP_DIR + '/index.jsx',
 		vendor: [
 			"react", "react-addons-css-transition-group", "react-dom", "react-redux", "react-router", "react-router-redux",
-			"react-toolbox", "redux", "redux-thunk", "reselect", path.join(__dirname, 'client', 'theme', 'theme')
+			"react-toolbox", "redux", "redux-thunk", "reselect"
 		]
 	},
 	module: {
@@ -61,11 +61,14 @@ const config = {
 		]
 	},
 	output: {
-		filename: 'bundle.prod.js',
+		filename: '[name].prod.js',
 		path: BUILD_DIR
 	},
 	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({name: "vendor", filename: "vendor.prod.js"}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "vendor",
+			minChunks: Infinity
+		}),
 		new webpack.DefinePlugin({"process.env": {NODE_ENV: JSON.stringify('production')}}),
 		new webpack.LoaderOptionsPlugin({
 			eslint: {
@@ -76,19 +79,18 @@ const config = {
 				context: '/'
 			}
 		}),
-		new webpack.optimize.OccurrenceOrderPlugin(true),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: { warnings: false, unused: true, dead_code: true },
-			output: { comments: false }
-		}),
 		new ExtractTextPlugin({
-			filename: "bundle.prod.css",
-			allChunks: true
+			filename: "[name].prod.css"
 		}),
+		new webpack.optimize.OccurrenceOrderPlugin(true),
 		new OptimizeCssAssetsPlugin({
 			cssProcessorOptions: {
 				discardComments: {removeAll: true}
 			}
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: { warnings: false, unused: true, dead_code: true },
+			output: { comments: false }
 		})
 	],
 	resolve: {
