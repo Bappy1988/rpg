@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import * as styles from './grid.styles.scss';
+import * as styles from './grid.styles';
 
 class Row extends React.Component {
 	render() {
