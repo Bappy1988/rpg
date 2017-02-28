@@ -48,9 +48,9 @@
    See [React Toolbox Components](http://react-toolbox.com/#/components) for more information on individual components  
    Developer notes are also included in `themes/overrides.css`  
 ### Tests
-   Tests are located under the `tests` folder and are largely up to the developer to write.  
+   Tests are located under the `__tests__` folder alongside the related component(s), and are largely up to the developer to write.  
    They are executed using `jest`, which will detect and run them automatically and provide a coverage report.  
-   They can be run manually with `npm run test`, but are also run with each production build.  
+   They can be run manually with `yarn test`, but are also run with each production build.  
 ## Server Structure
  The server is a simple express server providing some API endpoints and serving the generated bundles / css.  
  Any files under `api` ending in `.route.js` are included automatically, allowing endpoints to be split into multiple files  
@@ -67,13 +67,13 @@
 
 ### Production Mode
   `npm run build.prod`  
-  Generates two javascript bundles (app and vendor) and a css bundle. Source maps are not included, the javascript bundles are minified and the css is optimized.  
+  Generates two bundles (app and vendor) for both css and javascript. Source maps are not included, the javascript bundles are minified and the css bundles are optimized.  
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
   This will also run the test suite and will abort if any tests fail.  
   
   Notes:  
-  * This bundle will be compact (about 600kb javascript + 100kb css), but debugging will be impossible so it should not be used for local development.  
-  * When served with gzip, this decreases to around 170kb javascript and 15kb css
+  * This bundle will be compact (about 650kb javascript + 120kb css), but debugging will be impossible so it should not be used for local development.  
+  * When served with gzip, this decreases to around 180kb javascript and 25kb css
 
 ### Testing
   `npm run test`  
