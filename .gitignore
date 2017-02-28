@@ -4,4 +4,4 @@ dist/app.*
 dist/bundle.*
 dist/vendor.*
 node_modules
-tests/__snapshots__
+__snapshots__
