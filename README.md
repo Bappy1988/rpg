@@ -5,7 +5,7 @@
  * Redux (with thunk)
  * React Toolbox (for Material UI components)
  * 12 column grid system for responsive UI
- * Unit Tests (with Jest)
+ * Unit Tests (with Jest, Enzyme and a mock store)
  
 ## Getting Started
 `yarn` is recommended, though `npm` will also work  
@@ -49,6 +49,7 @@
    Developer notes are also included in `themes/overrides.css`  
 ### Tests
    Tests are located under the `__tests__` folder alongside the related component(s), and are largely up to the developer to write.  
+   `enzyme` and `mock-redux-store` are included to allow for more comprehensive tests - see the home component test for an example.  
    They are executed using `jest`, which will detect and run them automatically and provide a coverage report.  
    They can be run manually with `yarn test`, but are also run with each production build.  
 ## Server Structure
@@ -63,7 +64,7 @@
   Generates a single artifact with the css bundled into it. Source maps are included and it is not minified.  
   
   Notes: 
-  * This bundle will be big (about 9mb) - therefore it should _not_ be used in production
+  * This bundle will be big (about 7.5mb) - therefore it should _not_ be used in production
 
 ### Production Mode
   `npm run build.prod`  
@@ -88,7 +89,7 @@
  * `build.prod` runs webpack using `webpack.prod.js`, which builds chunked JS and CSS
    * JS is minified and source maps are not included
    * Vendor (3rd party) code is split into a separate JS file  
-   * CSS toolchain is sass-loader -> postcss-loader -> css-loader -> extract-text-webpack-plugin -> bundle.prod.css -> optimize-css-assets-plugin
+   * CSS toolchain is sass-loader -> postcss-loader -> css-loader -> extract-text-webpack-plugin -> [app|vendor].prod.css -> optimize-css-assets-plugin
 
 ### Known Issues
  * Deprecation warning from `loaderUtils.parseQuery()` due to api change - [issue details](https://github.com/webpack/loader-utils/issues/56) 
