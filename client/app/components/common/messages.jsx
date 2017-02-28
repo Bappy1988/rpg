@@ -1,5 +1,5 @@
 import React from 'react'
-import * as styles from './messages.styles';
+import * as styles from './messages.styles.scss';
 
 const Error = (props) => {
     return (
