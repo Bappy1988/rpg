@@ -9,7 +9,31 @@
  * Unit Tests (with Jest, Enzyme and a mock store)
  
 ## Contents
-[Known Issues](#known-issues) 
+   - [Getting Started](#getting-started)
+     - [Express Mode](#express-mode)
+     - [Webpack Dev Server Mode](#webpack-dev-server-mode)
+   - [Client Structure](#client-structure)
+     - [App](#app)
+     - [Components](#components)
+     - [Redux Store](#redux-store)
+     - [Routing](#routing)
+       - [Router State in Redux](#router-state-in-redux)
+       - [Authentication](#authentication)
+     - [Responsive Grid](#responsive-grid)
+     - [Theming](#theming)
+     - [Tests](#tests)
+   - [Server Structure](#server-structure)
+     - [Express](#express)
+     - [Webpack Dev Server](#webpack-dev-server)
+   - [Build System](#build-system)
+     - [Development Mode](#development-mode)
+       - [Development Mode Notes](#development-mode-notes)
+     - [Production Mode](#production-mode)
+       - [Production Mode Notes](#production-mode-notes)
+     - [Testing](#testing)
+   - [Technical Details](#technical-details)
+     - [Build Process Details](#build-process-details)
+     - [Known Issues](#known-issues) 
  
 ## Getting Started
 `yarn` is recommended, though `npm` will also work  
@@ -67,7 +91,6 @@
    A simple express server providing some API endpoints and serving the generated bundles / css.  
    Any files under `api` ending in `.route.js` are included automatically, allowing endpoints to be split into multiple files.  
    All responses are compressed with gzip compression.  
-
 ### Webpack Dev Server
    Webpack dev server with hot module replacement enabled - only serves the dev bundle.  
    API requests are proxied through to the express server, so this will need to be running if any are required.  
@@ -78,7 +101,7 @@
   `npm run build.dev`  
   Generates a single artifact with the css bundled into it. Source maps are included and it is not minified.  
 
-#### Notes
+#### Development Mode Notes
   * This bundle will be big (about 7.5mb) - therefore it should _not_ be used in production
 
 ### Production Mode
@@ -87,7 +110,7 @@
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
   This will also run the test suite and will abort if any tests fail.  
 
-#### Notes
+#### Production Mode Notes
   * This bundle will be compact (about 650kb javascript + 120kb css), but debugging will be impossible so it should not be used for local development.  
   * When served with gzip, this decreases to around 180kb javascript and 25kb css
 
@@ -96,7 +119,7 @@
   Runs all the tests in the `tests` folder and displays the results, followed by a coverage report  
   This can be run manually, but is also run when doing a production build
 ## Technical Details
-### Build Process
+### Build Process Details
  * `package.json` contains the build scripts
  * `build.dev` runs webpack using config `webpack.dev.js`, which builds a single artifact
    * JS is not minified and source maps are included
