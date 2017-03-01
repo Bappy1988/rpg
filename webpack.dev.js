@@ -5,6 +5,16 @@ const APP_DIR = path.join(__dirname, 'client/app');
 const BUILD_DIR = path.join(__dirname, 'dist');
 
 const config = {
+	devServer: {
+		contentBase: './dist',
+		hot: true,
+		filename: 'bundle.dev.js',
+		port: 9002,
+		proxy: {
+			"*": "http://localhost:9001"
+		},
+		publicPath: '/'
+	},
 	entry: APP_DIR + '/index.jsx',
 	module: {
 		rules: [
@@ -58,6 +68,7 @@ const config = {
 	},
 	plugins: [
 		new webpack.DefinePlugin({"process.env": {NODE_ENV: JSON.stringify('development')}}),
+		new webpack.HotModuleReplacementPlugin(),
 		new webpack.LoaderOptionsPlugin({
 			eslint: {
 				failOnWarning: false,

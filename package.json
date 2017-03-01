@@ -7,6 +7,7 @@
   "scripts": {
     "build.dev": "webpack --config webpack.dev.js -d",
     "build.prod": "npm run test && webpack --config webpack.prod.js",
+    "devserver": "webpack-dev-server --config webpack.dev.js",
     "start": "nodemon server/dev.js",
     "test": "jest --no-cache"
   },
@@ -23,7 +24,8 @@
     "react-toolbox": "^2.0.0-beta.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^2.5.4"
+    "reselect": "^2.5.4",
+    "webpack-dev-server": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
