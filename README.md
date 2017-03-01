@@ -5,15 +5,25 @@
  * Redux (with thunk)
  * React Toolbox (for Material UI components)
  * 12 column grid system for responsive UI
+ * Express server or webpack-dev-server with Hot Module Replacement (HMR)
  * Unit Tests (with Jest, Enzyme and a mock store)
+ 
+## Contents
+[Known Issues](#known-issues) 
  
 ## Getting Started
 `yarn` is recommended, though `npm` will also work  
  1. Clone the project
  2. Run `yarn install`
  3. Run `yarn run build.dev`
- 4. Run `yarn start`
- 5. Navigate to [localhost:9001](http://localhost:9001)
+
+### Express mode:  
+ 1. Run `yarn start`
+ 2. Navigate to [localhost:9001](http://localhost:9001) for dev, or [localhost:9001/prod.html](http://localhost:9001/prod.html) for production
+
+### Webpack Dev Server mode:
+ 1. Run `yarn devserver`
+ 2. Navigate to [localhost:9002](http://localhost:9002)
 
 ## Client Structure
 ### App  
@@ -53,17 +63,22 @@
    They are executed using `jest`, which will detect and run them automatically and provide a coverage report.  
    They can be run manually with `yarn test`, but are also run with each production build.  
 ## Server Structure
- The server is a simple express server providing some API endpoints and serving the generated bundles / css.  
- Any files under `api` ending in `.route.js` are included automatically, allowing endpoints to be split into multiple files  
- The server compresses all responses with gzip compression.  
+### Express
+   A simple express server providing some API endpoints and serving the generated bundles / css.  
+   Any files under `api` ending in `.route.js` are included automatically, allowing endpoints to be split into multiple files.  
+   All responses are compressed with gzip compression.  
+
+### Webpack Dev Server
+   Webpack dev server with hot module replacement enabled - only serves the dev bundle.  
+   API requests are proxied through to the express server, so this will need to be running if any are required.  
 ## Build System
  The project is built using Webpack 2 and can be built in development or production mode  
  All output files are placed in the `dist` folder
 ### Development Mode
   `npm run build.dev`  
   Generates a single artifact with the css bundled into it. Source maps are included and it is not minified.  
-  
-  Notes: 
+
+#### Notes
   * This bundle will be big (about 7.5mb) - therefore it should _not_ be used in production
 
 ### Production Mode
@@ -71,8 +86,8 @@
   Generates two bundles (app and vendor) for both css and javascript. Source maps are not included, the javascript bundles are minified and the css bundles are optimized.  
   The app bundle contains the code related to the application, while the vendor bundle contains all of the supporting libraries.  
   This will also run the test suite and will abort if any tests fail.  
-  
-  Notes:  
+
+#### Notes
   * This bundle will be compact (about 650kb javascript + 120kb css), but debugging will be impossible so it should not be used for local development.  
   * When served with gzip, this decreases to around 180kb javascript and 25kb css
 
