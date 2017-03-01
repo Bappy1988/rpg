@@ -11,11 +11,13 @@ const config = {
 		filename: 'bundle.dev.js',
 		port: 9002,
 		proxy: {
-			"*": "http://localhost:9001"
+			"/api": "http://localhost:9001"
 		},
 		publicPath: '/'
 	},
-	entry: APP_DIR + '/index.jsx',
+	entry: [
+		APP_DIR + '/index.jsx'
+	],
 	module: {
 		rules: [
 			{
