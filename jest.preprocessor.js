@@ -3,16 +3,16 @@
  * Converts the CSS to a hashmap containing the selectors
  * Used to simulate css-loader in Webpack
  */
-const parser = require('cssparser');
+const cssjson = require('cssjson');
 const sass = require('node-sass');
 
 module.exports = {
 	getSelectors(rules) {
 		let selectors = {};
-		rules.forEach(rule => {
-			if(rule.type === 'style') {
+		Object.keys(rules).forEach(rule => {
+			if(rule.charAt(0) !== '@') {
 				// Remove the first . or # (if there is one)
-				let selectorName = rule.selector.replace(/^[.#]/, '');
+				let selectorName = rule.replace(/^[.#]/, '');
 				// Remove any :pseudo
 				selectorName = selectorName.replace(/:[A-Za-z0-9()-]+/g, '');
 				// No spaces for you
@@ -24,8 +24,8 @@ module.exports = {
 				// Add them all into the selector list
 				selectorTree.forEach(sT => selectors[sT] = sT);
 			}
-			if(rule.children) {
-				Object.assign(selectors, this.getSelectors(rule.children));
+			if(rules[rule].children) {
+				Object.assign(selectors, this.getSelectors(rules[rule].children));
 			}
 		});
 		return selectors;
@@ -34,8 +34,8 @@ module.exports = {
 		let stylesObject = {};
 		if(/\.s?css$/i.test(path)) {
 			let result = sass.renderSync({file: path});
-			let parsed = parser.parse(result.css.toString('utf8'));
-			stylesObject = this.getSelectors(parsed.rulelist);
+			let parsed = cssjson.toJSON(result.css.toString('utf8'));
+			stylesObject = this.getSelectors(parsed.children);
 		}
 		return 'module.exports = ' + JSON.stringify(stylesObject);
 	}

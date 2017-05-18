@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import NotFoundComponent from '../notfound.component';
+import NotFoundComponent from '../notfound';
 
 test('NotFound renders', () => {
 	const tree = renderer.create(
