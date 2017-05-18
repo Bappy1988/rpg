@@ -89,11 +89,17 @@ const config = {
 			}
 		}),
 		new webpack.optimize.UglifyJsPlugin({
-			compress: { warnings: false, unused: true, dead_code: true },
-			output: { comments: false }
+			compress: {warnings: false, unused: true, dead_code: true},
+			output: {comments: false}
 		})
 	],
 	resolve: {
+		alias: {
+			actions: path.resolve(__dirname, 'client', 'app', 'actions'),
+			components: path.resolve(__dirname, 'client', 'app', 'components'),
+			reducers: path.resolve(__dirname, 'client', 'app', 'reducers'),
+			selectors: path.resolve(__dirname, 'client', 'app', 'selectors')
+		},
 		extensions: ['.scss', '.css', '.js', '.jsx', '.json'],
 		modules: ['node_modules']
 	}
