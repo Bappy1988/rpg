@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import * as styles from './grid.styles';
 
 class Row extends React.Component {
@@ -50,16 +51,16 @@ class Col extends React.Component {
 	}
 }
 Col.propTypes = {
-	xs: React.PropTypes.number,
-	xsOffset: React.PropTypes.number,
-	sm: React.PropTypes.number,
-	smOffset: React.PropTypes.number,
-	md: React.PropTypes.number,
-	mdOffset: React.PropTypes.number,
-	lg: React.PropTypes.number,
-	lgOffset: React.PropTypes.number,
-	xl: React.PropTypes.number,
-	xlOffset: React.PropTypes.number
+	xs: PropTypes.number,
+	xsOffset: PropTypes.number,
+	sm: PropTypes.number,
+	smOffset: PropTypes.number,
+	md: PropTypes.number,
+	mdOffset: PropTypes.number,
+	lg: PropTypes.number,
+	lgOffset: PropTypes.number,
+	xl: PropTypes.number,
+	xlOffset: PropTypes.number
 };
 
 export {Row, Col};
