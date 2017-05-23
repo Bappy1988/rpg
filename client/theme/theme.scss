@@ -5,3 +5,5 @@
 @import "~normalize.css";
 
 :global(#app) { height:100%; }
+header[data-react-toolbox="app-bar"] h1 { overflow-y:hidden; }
+body { background-color: #e6e6e6; }
