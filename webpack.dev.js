@@ -27,6 +27,12 @@ const config = {
 				test: /\.jsx?$/
 			},
 			{
+				test: /\.(png|jpg|jpeg|gif)$/,
+				use: [
+					{loader: "url-loader"}
+				]
+			},
+			{
 				test: /\.s?css$/,
 				use: [
 					{loader: "style-loader"},

@@ -23,6 +23,12 @@ const config = {
 				test: /\.jsx?$/
 			},
 			{
+				test: /\.(png|jpg|jpeg|gif)$/,
+				use: [
+					{loader: "url-loader"}
+				]
+			},
+			{
 				loader: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [
