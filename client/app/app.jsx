@@ -6,6 +6,7 @@ import AdminHome from './admin';
 import PlayerHome from './player';
 import Viewer from './viewer';
 import NotFoundComponent from 'components/notfound';
+import NotAuthorised from 'components/notauthorised';
 import '../theme/theme';
 
 class AppComponent extends React.Component {
@@ -17,9 +18,10 @@ class AppComponent extends React.Component {
 	render() {
 		return <Switch>
 			<Route component={Home} exact path="/"/>
-			<AuthenticatedRoute component={AdminHome} exact path="/viewer"/>
+			<AuthenticatedRoute component={AdminHome} exact path="/admin" redirect="/"/>
 			<Route component={PlayerHome} exact path="/player"/>
 			<Route component={Viewer} exact path="/viewer"/>
+			<Route component={NotAuthorised} exact path="/noauth" />
 			<Route component={NotFoundComponent} />
 		</Switch>
 	}

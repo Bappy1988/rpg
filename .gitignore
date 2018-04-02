@@ -3,6 +3,7 @@ coverage
 dist/app.*
 dist/bundle.*
 dist/vendor.*
+dist/cover.jpg
 node_modules
 __snapshots__
 
