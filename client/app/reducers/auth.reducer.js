@@ -1,7 +1,7 @@
 import {ACTIONS} from '../actions/home.actions';
 
 const initialState = {
-	loggedIn: false
+	loggedIn: true
 };
 
 const authReducer = (state = initialState, action) => {

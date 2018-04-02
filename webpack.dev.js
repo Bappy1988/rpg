@@ -11,7 +11,8 @@ const config = {
 		filename: 'bundle.dev.js',
 		port: 9002,
 		proxy: {
-			"/api": "http://localhost:9001"
+			"/api": "http://localhost:9001",
+			"/json": "http://localhost:9001"
 		},
 		publicPath: '/'
 	},

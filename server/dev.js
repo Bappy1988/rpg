@@ -6,7 +6,7 @@ const path = require('path');
 const server = module.exports = express();
 
 // Body parsing
-server.use(bodyParser.json());
+server.use(bodyParser.json({limit: "50mb"}));
 
 // GZIP
 server.use(compression());
