@@ -16,7 +16,7 @@ export function ajaxCall(url, method, data, nextAction, loadAction=null) {
                 try {
                     decoded = JSON.parse(res);
                 } catch(e) {
-                    dispatch({type:'AJAX_ERROR', payload: {error: 'Could not decode response'}});
+                    //dispatch({type:'AJAX_ERROR', payload: {error: 'Could not decode response'}});
                     return;
                 }
                 switch(typeof nextAction) {

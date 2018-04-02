@@ -16,6 +16,23 @@ const gotImages = () => {
 	}
 }
 
+const getCurrentImage = (id) => {
+    return ajaxCall('/json/selectedImage', 'GET', '', gotSelectedImage(id));
+} 
+
+const gotSelectedImage = (id) => {
+    return (dispatch, res) => {
+        if (res.id !== id){
+            dispatch(ajaxCall('/json/images/' + res.id, 'GET', '', gotOneImage()));
+        }
+    }
+}
+
+const gotOneImage = () =>{
+    return (dispatch, res) => {
+		dispatch({type: ACTIONS.GET_IMAGE, payload: res});
+	}
+}
 
 const storeImage = (image) => {
     return ajaxCall('/json/images', 'POST', image, storedImage());
@@ -23,8 +40,13 @@ const storeImage = (image) => {
 
 const storedImage = () => {
     return (dispatch, res) => {
-		dispatch({type: ACTIONS.STORE_IMAGE, payload: res});
+        dispatch({type: ACTIONS.STORE_IMAGE, payload: res});
 	}
 }
 
-export {getImages, storeImage};
+const setImage = (id) => {
+    return ajaxCall('/json/selectedImage', 'POST', {id} );
+}
+
+
+export {getImages, storeImage, getCurrentImage, setImage};

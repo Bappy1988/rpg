@@ -1,3 +1,7 @@
 {
-    "images": []
+  "images": [
+  ],
+  "selectedImage": {
+    "id": 1
+  }
 }
