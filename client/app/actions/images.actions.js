@@ -41,6 +41,7 @@ const storeImage = (image) => {
 const storedImage = () => {
     return (dispatch, res) => {
         dispatch({type: ACTIONS.STORE_IMAGE, payload: res});
+        dispatch(getImages());
 	}
 }
 

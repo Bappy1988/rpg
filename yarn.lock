@@ -6200,7 +6200,7 @@ react-test-renderer@~15.5.4:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-toolbox@~2.0.0-beta.11:
+react-toolbox@~2.0.0-beta.12:
   version "2.0.0-beta.12"
   resolved "https://registry.yarnpkg.com/react-toolbox/-/react-toolbox-2.0.0-beta.12.tgz#1d9dd7cc41e3b35dabdce5eb100a8068eee88c45"
   dependencies:

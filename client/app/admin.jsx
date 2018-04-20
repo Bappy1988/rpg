@@ -4,6 +4,7 @@ import {Layout, Panel, AppBar, Navigation} from 'react-toolbox'
 import {tryAdminLogin} from 'actions/home.actions';
 import { Tabs, Tab } from 'react-toolbox';
 import AdminViewscreen from './components/admin/viewscreen';
+import Characters from './components/admin/characters';
 
 class AdminHome extends React.Component {
     constructor(){
@@ -29,7 +30,7 @@ class AdminHome extends React.Component {
                         <div></div>
                     </Tab>
                     <Tab label="Characters">
-                        <div></div>
+                        <Characters/>
                     </Tab>
                     <Tab label="Viewscreen">
                         <AdminViewscreen/>
