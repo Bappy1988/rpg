@@ -1,16 +1,16 @@
 import React from 'react';
 import {Row, Col} from 'components/common/grid';
 import sampleCharacter from '../sampleCharacter';
-import CharacterSheet from './characters/characterSheet';
+import StarTrekAdventuresCharacterSheet from './characters/starTrekAdventuresCharacterSheet';
 
 class Characters extends React.Component {
     render() {
         return <div>
             <Row>
-                <Col md={8}>
+                <Col md={6}>
                 </Col>
-                <Col md={4}>
-                    <CharacterSheet characterData={sampleCharacter} />
+                <Col md={6}>
+                    <StarTrekAdventuresCharacterSheet characterData={sampleCharacter} editable={true}/>
                 </Col>
             </Row>
         </div>
