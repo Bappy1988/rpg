@@ -21,6 +21,8 @@ class StarTrekAdventuresCharacterSheet extends React.Component {
             upbringing: this.props.characterData.biography.upbringing,
             assignment: this.props.characterData.biography.assignment,
             traits: this.props.characterData.biography.traits,
+            attributes: this.props.characterData.stats.attributes,
+            disciplines: this.props.characterData.stats.disciplines,
             focuses: this.props.characterData.stats.focuses,
             values: this.props.characterData.stats.values,
             determination: this.props.characterData.stats.determination,
@@ -35,6 +37,13 @@ class StarTrekAdventuresCharacterSheet extends React.Component {
 
     componentDidMount() {
         this.setState(this.mapCharacterData());
+    }
+
+    handleTableValueChange(name, key, event) {
+        this.setState({
+            ...this.state,
+            [name]: {...this.state[name], [key]: event.currentTarget.value}
+        })
     }
 
     handleChange(name, event, index) {
@@ -104,9 +113,9 @@ class StarTrekAdventuresCharacterSheet extends React.Component {
                     <Col md={2}><b>Traits</b></Col><Col md={10}>{this.arrayValues('traits',5,'ltr')}</Col>
                 </Row>
                 <h3>Attributes</h3>
-                <TableRenderer source={this.props.characterData.stats.attributes} />
+                <TableRenderer source={this.state.attributes || {}} editable={this.props.editable} editCallback={(key, event) => this.handleTableValueChange('attributes',key,event)}/>
                 <h3>Disciplines</h3>
-                <TableRenderer source={this.props.characterData.stats.disciplines} />
+                <TableRenderer source={this.state.disciplines || {}} editable={this.props.editable} editCallback={(key, event) => this.handleTableValueChange('disciplines',key,event)}/>
                 <Row>
                     <Col md={6}>
                         <h3>Values</h3>
