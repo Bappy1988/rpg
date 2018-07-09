@@ -6,6 +6,7 @@ dist/vendor.*
 dist/cover.jpg
 node_modules
 __snapshots__
+.vscode
 
 # Logs
 logs
